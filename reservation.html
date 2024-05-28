@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fast Dine</title>
+    <link rel="stylesheet" href="style3.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Fast Dine</h1>
+            <p>Innovation in dining</p>
+        </div>
+    </header>
+
+    <main class="container">
+
+        <div class="buttons">
+            <a href="menu.html" class="button">Menu</a>
+            <a href="bill.html" class="button">Bill</a>
+            <a href="html.html" class="button">Home</a>
+        </div>
+
+
+        <section class="contacts">
+             <div class="contact-box">
+                    <h2>Reservation</h2>
+                <div class="contact-info">
+             <button onclick="makeReservation()">Make a Reservation</button>
+                </div>
+                 <div id="reservation-details"></div>
+
+            </div>
+
+        </section>
+
+<script>
+    function makeReservation() {
+        var name = prompt("Please enter your name:");
+        var reservationDetails = "";
+
+        var numberOfPeople = prompt("How many people are in your party?");
+        reservationDetails += "Number of people: " + numberOfPeople + "<br>";
+
+        var reservationDateTime = prompt("Please enter your desired reservation date and time (e.g., YYYY-MM-DD HH:MM):");
+        reservationDetails += "Reservation date and time: " + reservationDateTime + "<br>";
+
+        if (!name || !numberOfPeople || !reservationDateTime) {
+            alert("Please fill in all required fields.");
+            return;
+        }
+
+        reservationDetails = "Thank you, " + name + "! Your reservation details:<br>" + reservationDetails;
+
+        var reservationContainer = document.getElementById("reservation-details");
+        reservationContainer.innerHTML = reservationDetails;
+
+        document.getElementById("name").value = "";
+        document.getElementById("numberOfPeople").value = "";
+        document.getElementById("reservationDateTime").value = "";
+    }
+</script>
+
+
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Fast Dine</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fast Dine</title>
+    <link rel="stylesheet" href="style1.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Fast Dine</h1>
+            <p>Innovation in dining</p>
+        </div>
+    </header>
+
+    <main class="container">
+    <div class="buttons">
+        <a href="html.html" class="button">Home</a>
+        <a href="bill.html" class="button">Bill</a>
+        <a href="reservation.html" class="button">Reservation</a>
+    </div>
+
+        <section class="black-box">
+            <h2>Example Menu</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Dish</th>
+                        <th>Description</th>
+                        <th>Add to Cart</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="text-align: center;">
+                            <h3>image v</h3> <br>
+                            <img src="ep.jpg" alt="Destination 1 Image" class="destination-image">
+                        </td>
+                        <td><b>Description of the dish probably in a different layout. </b></td>
+                        <td><button onclick="addToCart('Dish 1')">Add</button></td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: center;">
+                            <h3>image v</h3> <br>
+                            <img src="ep.jpg" alt="Destination 1 Image" class="destination-image">
+                        </td>
+                        <td><b>Description of the dish probably in a different layout.</b></td>
+                        <td><button onclick="addToCart('Dish 2')">Add</button></td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: center;">
+                            <h3>image v</h3> <br>
+                            <img src="ep.jpg" alt="Destination 1 Image" class="destination-image">
+                        </td>
+                        <td><b>Description of the dish probably in a different layout.</b></td>
+                        <td><button onclick="addToCart('Dish 3')">Add</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+    <button onclick="openCartWindow()" class="checkout-button">Checkout</button>
+
+    </main>
+
+
+
+    <footer>
+        <p>&copy; 2024 Fast Dine</p>
+    </footer>
+</body>
+</html>
+
+
+<script>
+    var cart = [];
+
+    function addToCart(item) {
+        cart.push(item);
+        updateCart();
+    }
+
+    function updateCart() {
+        var cartItems = document.getElementById("cart-items");
+        cartItems.innerHTML = "";
+
+        cart.forEach(function(item) {
+            var li = document.createElement("li");
+            li.textContent = item;
+            cartItems.appendChild(li);
+        });
+    }
+
+    function openCartWindow() {
+        var cartWindow = window.open("", "Cart", "width=400,height=400");
+        var cartContent = "<h2>Cart</h2><ul>";
+        cart.forEach(function(item) {
+            cartContent += "<li>" + item + "</li>";
+        });
+        cartContent += "</ul>";
+        cartWindow.document.body.innerHTML = cartContent;
+    }
+</script>
+
+
+
+
+

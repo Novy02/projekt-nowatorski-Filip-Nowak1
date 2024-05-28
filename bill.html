@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fast Dine</title>
+    <link rel="stylesheet" href="style2.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Welcome to Fine Dine</h1>
+            <p>Innovation in dining</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="buttons">
+            <a href="menu.html" class="button">Menu</a>
+            <a href="html.html" class="button">Home</a>
+            <a href="reservation.html" class="button">Reservation</a>
+        </div>
+
+
+    </main>
+
+    <main class="container">
+        <section class="about-box">
+            <h2>Payment Processor someting more functional in the future</h2>
+            <form id="payment-form">
+                <label for="card-number">Card Number:</label>
+                <input type="text" id="card-number" name="card-number" required><br>
+
+                <label for="expiration">Expiration Date:</label>
+                <input type="text" id="expiration" name="expiration" placeholder="MM/YY" required><br>
+
+                <label for="cvv">CVV:</label>
+                <input type="text" id="cvv" name="cvv" required><br>
+
+                <button type="submit">Submit Payment</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Fast Dine</p>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            document.getElementById("payment-form").addEventListener("submit", function(event) {
+                event.preventDefault(); // Prevent the default form submission
+
+                // Get the form values
+                var cardNumber = document.getElementById("card-number").value;
+                var expiration = document.getElementById("expiration").value;
+                var cvv = document.getElementById("cvv").value;
+
+                // Perform basic validation
+                if (cardNumber.trim() === "" || expiration.trim() === "" || cvv.trim() === "") {
+                    alert("Please fill in all required fields.");
+                    return;
+                }
+
+                // You would typically send this data to your server to process the payment securely
+                // For this example, we'll just log the data to the console
+                console.log("Processing payment...");
+                console.log("Card Number:", cardNumber);
+                console.log("Expiration Date:", expiration);
+                console.log("CVV:", cvv);
+
+                // Optionally, you can clear the form fields after processing the payment
+                document.getElementById("card-number").value = "";
+                document.getElementById("expiration").value = "";
+                document.getElementById("cvv").value = "";
+
+                alert("Payment processed successfully!");
+            });
+        });
+    </script>
+</body>
+</html>
